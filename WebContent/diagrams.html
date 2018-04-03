@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://d3js.org/d3.v3.min.js"> </script>
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table align=right>
+    <tr><td align=center><a href=index.html>Home</a></td></tr>
+</table>
+
+<table align=center>
+<tr>
+<td class="bold" align=center width="10" >Название</td>
+
+</tr>
+<tr>
+<td width="100"><input type="text" name="one" value="" class="filterInput"></td>
+
+</tr>
+</table>
+<br>
+  <table align=center border="1">
+   <caption class="bold">Таблица значений</caption>
+   <tr>
+    <th>Название</th>
+    <th contenteditable="true">1 группа</th>
+    <th contenteditable="true">2 группа</th>
+    <th contenteditable="true">3 группа</th>
+   </tr>
+   <tr><td contenteditable="true">Строка 1</td><td contenteditable="true">3</td><td contenteditable="true">6</td><td contenteditable="true">3</td></tr>
+   <tr><td contenteditable="true">Строка 2</td><td contenteditable="true">4</td><td contenteditable="true">3</td><td contenteditable="true">2</td></tr>
+   <tr><td contenteditable="true">Строка 3</td><td contenteditable="true">5</td><td contenteditable="true">3</td><td contenteditable="true">5</td></tr>
+   <tr><td contenteditable="true">Строка 4</td><td contenteditable="true">5</td><td contenteditable="true">3</td><td contenteditable="true">4</td></tr>
+   <tr><td contenteditable="true">Строка 5</td><td contenteditable="true">5</td><td contenteditable="true">8</td><td contenteditable="true">5</td></tr>
+   <tr><td contenteditable="true">Строка 6</td><td contenteditable="true">6</td><td contenteditable="true">9</td><td contenteditable="true">2</td></tr>
+   <tr><td contenteditable="true">Строка 7</td><td contenteditable="true">6</td><td contenteditable="true">0</td><td contenteditable="true">5</td></tr>
+  </table>
+
+
+<table align=center>
+<tr>
+  <td>
+   <h3 align=center>Тип диаграммы</h3>
+   <form  action=diagramtypes.html>
+    <p align=center>
+    <select name="choice" >
+     <option value="1">Гистограмма 
+     <option value="2">Круговая диаграмма 
+     <option value="3">Кольцевая диаграмма 
+     <option value="4">Линейчатая диаграмма
+     <option value="5">Диаграмма с областями 
+     <option value="6">Точечная диаграмма 
+     <option value="7">Лепестковая диаграмма 
+     <option value="8">График
+    </select>
+    <input type="SUBMIT" name="select" value="Выбрать" onclick="functionname"> 
+   </form>
+  </td>
+ </tr>
+ </table>
+<!--  <script src="d3.js"></script> -->
+<script>
+function functionname(){
+var form = document.forms.my;
+var select = form.elements.choice;
+var option = select.options
+// alert(option.selected);
+// alert( option.value ); 
+alert( select.value );
+}
+</script>
+
+</body>
+</html>

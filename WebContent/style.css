@@ -1,0 +1,60 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, Verdana,  sans-serif; /* Семейство шрифтов */
+  font-size: 11pt; /* Размер основного шрифта в пунктах  */
+  background-color: #ffffff; /* Цвет фона веб-страницы */
+  color: #333; /* Цвет основного текста */ 
+  
+  margin: 0; /* Убираем отступы */
+   }
+   .center {
+    margin: auto; /* Отступы вокруг элемента */
+    width: 70%;
+   }
+   
+   .left {
+   margin-top: 10%;
+   align=left;
+   }
+   
+   .bold {
+   font-weight: 600;
+   }
+}
+h1 {
+  color: #a52a2a; /* Цвет заголовка */
+  font-size: 24pt; /* Размер шрифта в пунктах */
+  font-family: Georgia, Times, serif; /* Семейство шрифтов */
+  font-weight: normal; /* Нормальное начертание текста  */
+}
+p {
+  border-bottom: 1px solid #999; /* Параметры линии снизу */
+  padding-left: 10px; /* Отступ от линии слева до текста  */
+  padding-bottom: 10px; /* Отступ от линии снизу до текста  */
+}
+
+	
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:focus, a:hover {
+  border-bottom: 1px solid;
+}
+
+a:active {
+  color: red;
+}
+

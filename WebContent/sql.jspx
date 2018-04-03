@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sql="http://java.sun.com/jsp/jstl/sql"
+>
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="true"/>
+	
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Библиотека sql</title>
+</head>
+<body>
+	<sql:setDataSource var="dataSource" scope="session" 
+						url="jdbc:postgresql://localhost:5432/visual" user="postgres" password="0"/>
+						
+	<c:if test="${empty isFirstAccess}" >
+		<!-- Первый раз зашли на страницу - создаем и заполняем таблицу  -->					
+		<c:catch var="exc">
+		<!-- Если таблица не существует, то получим исключение. 
+		Поэтому перехватываем его и ничего не делаем -->
+			<sql:update dataSource="${dataSource}" sql="DROP TABLE test"/>
+		</c:catch>
+		
+		<sql:update dataSource="${dataSource}" 
+		sql="CREATE TABLE test (id INTEGER PRIMARY KEY, name VARCHAR(20), value VARCHAR(20))" />
+		
+		<sql:update dataSource="${dataSource}"
+				sql="INSERT INTO test(id, name, value) VALUES (1, 'param1', 'value1')" />
+		<sql:update dataSource="${dataSource}"
+				sql="INSERT INTO test(id, name, value) VALUES (2, 'param2', 'value2')" />
+		<sql:update dataSource="${dataSource}"
+				sql="INSERT INTO test(id, name, value) VALUES (3, 'param3', 'value3')" />
+		
+		<!-- Установка признака, что на страницу уже заходили -->		
+		<c:set var="isFirstAccess" value="true" scope="session" />		
+	</c:if>
+		
+	<!-- Выбираем содержимое таблицы -->		
+	<sql:query dataSource="${dataSource}" var="result" sql="SELECT * from test" />
+	
+	<!-- и строим таблицу с параметрами -->
+	<table border="1">
+		<tr>
+			<th>id</th>
+			<th>Параметр</th>
+			<th>Значение</th>
+		</tr>
+		
+		<c:forEach items="${result.rows}" var="parameter">
+			<tr>
+				<td><c:out value="${parameter.id}" /></td>
+				<td><c:out value="${parameter.name}" /></td>
+				<td><c:out value="${parameter.value}" /></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<p/><p/>
+		
+		
+						
+</body>
+</html>
+</jsp:root>
