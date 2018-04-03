@@ -1,6 +1,5 @@
 import java.sql.*;
   import java.io.*;
-  import java.math.*;
   import java.util.*;
 
   class clp
@@ -25,7 +24,7 @@ import java.sql.*;
     {
       // имя драйвера и url БД
       //String drName="";
-      String url="jdbc:postgresql://localhost:5432/visual";
+      String url="jdbc:postgresql://localhost:5433/Visual";
       Connection con=null;  // соединение
       ResultSet rs=null;    // результат выборки
       byte inb [] = new byte[512]; // массив для текста оператора
@@ -39,7 +38,7 @@ import java.sql.*;
         
       Properties prop = new Properties();
       prop.setProperty("user", "postgres");
-      prop.setProperty("password", "0");
+      prop.setProperty("password", "0000");
       
       // соединение с БД
       System.out.println("Connection." +url+" Please wait...");

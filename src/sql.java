@@ -7,7 +7,7 @@
   class sql
   {
     // URL и имя драйвера CloudscapeDB
-    static String url="jdbc:postgresql://localhost:5432/visual;create=false";
+    static String url="jdbc:postgresql://localhost:5433/Visual;create=false";
 //    static String drName="COM.cloudscape.core.RmiJdbcDriver";
     Connection con=null; // соединение
 
@@ -18,15 +18,15 @@
       // регистрация драйвера и соединение с БД
     	Properties prop = new Properties();
     	prop.setProperty("user", "postgres");
-        prop.setProperty("password", "0");
+        prop.setProperty("password", "0000");
         
 
 //    	try { Class.forName(drName);  }
 //      catch (SQLException e) { System.exit(0);  }
-//      try { con=DriverManager.getConnection(url); }
-//      catch (SQLException e) { System.exit(0);  }
-//      try { con.setAutoCommit(false); }
-//      catch (SQLException e) { System.exit(0);  }
+      try { con=DriverManager.getConnection(url); }
+      catch (SQLException e) { System.exit(0);  }
+      try { con.setAutoCommit(false); }
+      catch (SQLException e) { System.exit(0);  }
     }        
 
     //------------------------------------------------------

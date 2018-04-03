@@ -13,15 +13,15 @@ import javax.servlet.http.*;
 /**
  * Servlet implementation class thanks
  */
- @WebServlet("/pay2")
+ @WebServlet("/pay")
 
-public class pay2 extends HttpServlet {
+public class pay extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public pay2() {
+    public pay() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,19 +46,37 @@ public class pay2 extends HttpServlet {
 		         "</head>" + "<body>"  +
 		         "<p align=center><a href=index.html>Home</a>" +
 		         "<p align=center>"+
-		         "<H1 align=center><font color=black>Ваш спонсорский взнос</font></h1>+"
-		         + "</body>" + "</html>";         
+		         "<H1 align=center><font color=black>Ваш спонсорский взнос</font></h1>"
+		         ;         
 
-		String qu = "SELECT name, ss FROM data,";
-		      Vector vv = new Vector();
-		      String rStr;
-		      // Соединение с БД
-		      sql db = new sql();
-		      try { rStr=db.query(qu,vv); }
-		      catch (Exception ex) { }
-		      db.commit(); db.close();
+
 		      
-		      
+		   // Формирование статической заключительной части страницы
+		      outString=outString + 
+		    " <table align=center>"+
+		       "<tr>"+
+		       "<td width='100'>"+"<input type='text' name='one' value='' class=\"filterInput\"> "+"</td>"+
+		       "<td>&nbsp;</td>"+
+		       "<td>"+
+		       "</tr>"+
+		       "</table>"+
+		       "<div align=center>"+
+		        "<form>"+
+		         "<select name='subscr'>"+
+		         "<option value='20000'>UAN"+
+		          "<option value='20001'>USD"+
+		          "<option value='20002'>EUR"+
+		        " </select>"+
+		        "</form>"+
+		        "</div>"+
+		        "<div align=center>"+
+		        "<form action='thanks'>"+
+		         "<input type='SUBMIT' name='send' value='Подтвердить'><br>"+
+		        "</form>"+
+		         "</div>"+  
+		        "</body>\n" +
+		        "</html>";
+		   // Получение выходного потока и вывод в него HTML-документа  
 		 out.println(outString);
 	      out.close();
 	}
