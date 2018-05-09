@@ -4,7 +4,8 @@
   <HTML>
   <% response.setContentType("text/html; charset=windows-1251"); %>  
   <%@ page import="java.util.*" %>
-  <%@ page import="lab_4.*" %>
+  <%@ page import="lab_4.*" %> 
+   <%@ page import="lab_4.appjdbc" %>
 
   <%
         String errors[] = elephantru.Error();
@@ -16,12 +17,12 @@
         Vector vv;
         Enumeration e;
         String rStr, qu, outStr;
-        appjdbc db;
+        sql1 db;
         if (id.equals("null")) 
         {
           id=(String)(session.getAttribute("uCode"));        
           spName=(String)(session.getAttribute("uName"));        
-          db = new appjdbc();
+          db = new sql1();
         }
         else 
         {
@@ -37,7 +38,7 @@
           }       
     
           // Проверка наличия кода спонсора в БД
-          db = new appjdbc();
+          db = new sql1();
           qu = "SELECT name from sponsor where spons_id=" + id;
           vv = new Vector();
           try  { rStr=db.query(qu,vv); }

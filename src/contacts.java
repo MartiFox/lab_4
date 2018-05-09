@@ -1,3 +1,5 @@
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -7,26 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import java.io.IOException;
-//import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.HttpServlet;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-
-
 /**
- * Servlet implementation class thanks
+ * Servlet implementation class contacts
  */
- @WebServlet("/thanks")
-
-public class thanks extends HttpServlet {
+@WebServlet("/contacts")
+public class contacts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public thanks() {
+    public contacts() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,8 +29,6 @@ public class thanks extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-
 		response.setContentType("text/html;charset=windows-1251");
 	      // получение выходного потока
 	      PrintWriter out=response.getWriter();
@@ -46,15 +37,13 @@ public class thanks extends HttpServlet {
 		
 		String outString;
 		outString=docType+
-		         "<HTML>" + "<HEAD>" +
-		         "<title>Спасибо</title>"  +  
-		         "</head>" + "<body>"  +
-		         "<p align=center><a href=index.html>Home</a>" +
-		         "<p align=center>"+
-		         "<H1 align=center><font color=red>Спасибо за поддержку!</font></h1>"
-		         + "</body>" + "</html>";         
-
-		         //		 outString="<h1 align=center><font color=red>Спасибо за поддержку!</font></h1>";
+		"<table align=right>"+
+	    "<tr><td align=center><a href=index.html>Home</a></td></tr>"+
+	"</table>"+
+	"<H1 align=center><font color=black>Контакты</font> "+
+			"</h1>"+
+	"</body>" + "</html>";   
+	
 		 out.println(outString);
 	      out.close();
 	}

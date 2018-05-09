@@ -1,3 +1,5 @@
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -7,26 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import java.io.IOException;
-//import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.HttpServlet;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-
-
 /**
- * Servlet implementation class thanks
+ * Servlet implementation class maps
  */
- @WebServlet("/thanks")
-
-public class thanks extends HttpServlet {
+@WebServlet("/maps")
+public class maps extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public thanks() {
+    public maps() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,8 +29,8 @@ public class thanks extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-
+	
+		
 		response.setContentType("text/html;charset=windows-1251");
 	      // получение выходного потока
 	      PrintWriter out=response.getWriter();
@@ -49,12 +42,16 @@ public class thanks extends HttpServlet {
 		         "<HTML>" + "<HEAD>" +
 		         "<title>Спасибо</title>"  +  
 		         "</head>" + "<body>"  +
-		         "<p align=center><a href=index.html>Home</a>" +
-		         "<p align=center>"+
-		         "<H1 align=center><font color=red>Спасибо за поддержку!</font></h1>"
+		       " <table align=right>"+
+		      "  <tr><td align=center><a href=index.html>Home</a></td></tr>"+
+		    " </table>"+
+		    "<h1 align=center>World map</h1>"+
+		    " <p align=center>Ukraine Map</p>"+
+		    " <table align=center>"+
+		     " <tr><td align=center><img src=images/blank_map.gif>  </td></tr>"+
+		     "</table>"
 		         + "</body>" + "</html>";         
 
-		         //		 outString="<h1 align=center><font color=red>Спасибо за поддержку!</font></h1>";
 		 out.println(outString);
 	      out.close();
 	}

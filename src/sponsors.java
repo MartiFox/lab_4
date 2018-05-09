@@ -37,7 +37,7 @@ import javax.servlet.http.*;
       Vector vv = new Vector();
       String rStr;
       // Соединение с БД
-      sql db = new sql();
+      sql1 db = new sql1();
       try { rStr=db.query(qu,vv); }
       catch (Exception ex) { }
       db.commit(); db.close();

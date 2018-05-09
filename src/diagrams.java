@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -24,34 +22,68 @@ public class diagrams extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-	      
+		response.setContentType("text/html;charset=windows-1251");
+	      // получение выходного потока
+
 	      // 1-я строка документа
-		 String outString=stdhead.mkHead("Построение диаграммы") +		
-		         "<table align=center border='1'>"+
-		   "<caption class='bold'>Таблица значений</caption>";
+		 String outString=stdhead.mkHead("Построение диаграммы") +
+				 "<table align=right>"+
+			     "<tr><td align=center><a href=index.html>Home</a></td></tr>"+
+			 "</table>"+
+		         "<table align=center "
+		         + "border='1'>"
+				 
+	   +"<caption class='bold'>Таблица значений</caption>"
+				 ;
 		
-		String qu = "SELECT *, ss FROM data,";
+		String qu = "SELECT data_id, datat_id  FROM datatable";
 	      Vector vv = new Vector();
 	      String rStr;
 	      // Соединение с БД
-	      sql db = new sql();
+	      sql1 db = new sql1();
 	      try { rStr=db.query(qu,vv); }
 	      catch (Exception ex) { }
 	      db.commit(); db.close();
+   
 	      // Формирование HTML-таблицы спонсоров и взносов 
 	      Enumeration e = vv.elements();
 	      while (e.hasMoreElements())
 	      {
-	        outString=outString + "<tr><td>" +
+		        outString=outString + "<tr><td>" +
 	                  (String)(e.nextElement()) +
-	                  "</td><td> - " +
+	                  "</td><td> " +
 	                  (String)(e.nextElement()) +
-	                  "</td></tr>\n"+
-	                  "</table>";
+	                  "</td></tr>\n"
+	                 ;
 	      }
-	      
+  
+		 
+		 outString=outString + 
+				 "</table>"+
+		"<table align=center>"+
+		 "<tr>"+
+		 "  <td>"+
+		    "<h3 align=center>Тип диаграммы</h3>"+
+		    "<form  action=diagramtypes.html>"+
+		     "<p align=center>"+
+		     "<select name='choice' >"+
+		      "<option value='1'>Гистограмма "+
+		      "<option value='2'>Круговая диаграмма "+
+		      "<option value='3'>Кольцевая диаграмма "+
+		      "<option value='4'>Линейчатая диаграмма"+
+		      "<option value='5'>Диаграмма с областями "+
+		      "<option value='6'>Точечная диаграмма "+
+		      "<option value='7'>Лепестковая диаграмма "+
+		      "<option value='8'>График"+
+		     "</select>"+
+		     "<input type='SUBMIT' name='select' value='Выбрать' onclick='functionname'> "+
+		    "</form>"+
+		   "</td>"+
+		  "</tr>"+
+		  "</table>";
+		 
+		 
+		 
 	      outString=outString + 
 	  		        "</body>\n" +
 	  		        "</html>";

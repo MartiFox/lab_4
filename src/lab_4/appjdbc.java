@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class appjdbc {
 		    // URL и имя драйвера CloudscapeDB
-		    static String url="jdbc:postgresql://localhost:5433/Visual;create=false";
+		    static String url="jdbc:postgresql://localhost:5433/Visual";
 //		    static String drName="COM.cloudscape.core.RmiJdbcDriver";
 		    Connection con=null; // соединение
 
@@ -25,7 +25,7 @@ public class appjdbc {
 		    	prop.setProperty("user", "postgres");
 		        prop.setProperty("password", "0000");
 		        
-
+      
 //		    	try { Class.forName(drName);  }
 //		      catch (SQLException e) { System.exit(0);  }
 		      try { con=DriverManager.getConnection(url); }

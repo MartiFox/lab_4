@@ -4,16 +4,16 @@
   import java.sql.*;
 
   
-  class sql
+  class sql1
   {
     // URL и имя драйвера CloudscapeDB
-    static String url="jdbc:postgresql://localhost:5433/Visual;create=false";
-//    static String drName="COM.cloudscape.core.RmiJdbcDriver";
+    static String url="jdbc:postgresql://localhost:5433/VisualD";
+    static String drName="org.postgresql.Driver";
     Connection con=null; // соединение
 
     //------------------------------------------------------
     // Конструктор. Устанавливает соединение с БД
-    sql() 
+    sql1() 
     {
       // регистрация драйвера и соединение с БД
     	Properties prop = new Properties();
@@ -21,12 +21,12 @@
         prop.setProperty("password", "0000");
         
 
-//    	try { Class.forName(drName);  }
-//      catch (SQLException e) { System.exit(0);  }
-      try { con=DriverManager.getConnection(url); }
-      catch (SQLException e) { System.exit(0);  }
+   	try { Class.forName(drName);  }
+      catch (Exception e) { e.printStackTrace(); }
+      try { con=DriverManager.getConnection(url, prop); }
+      catch (SQLException e) { e.printStackTrace();  }
       try { con.setAutoCommit(false); }
-      catch (SQLException e) { System.exit(0);  }
+      catch (SQLException e) { e.printStackTrace();  }
     }        
 
     //------------------------------------------------------

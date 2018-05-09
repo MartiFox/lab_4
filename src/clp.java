@@ -24,7 +24,7 @@ import java.sql.*;
     {
       // имя драйвера и url БД
       //String drName="";
-      String url="jdbc:postgresql://localhost:5433/Visual";
+      String url="jdbc:postgresql://localhost:5433/VisualD";
       Connection con=null;  // соединение
       ResultSet rs=null;    // результат выборки
       byte inb [] = new byte[512]; // массив для текста оператора
